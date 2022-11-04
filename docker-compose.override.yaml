@@ -1,9 +1,9 @@
 services:
-  hapi-template:
+  bin-schedule:
     build:
       target: development
-    image: hapi-template-development
-    container_name: hapi-template-development
+    image: bin-schedule-development
+    container_name: bin-schedule-development
     ports:
       - "3000:3000"
       - "9229:9229"

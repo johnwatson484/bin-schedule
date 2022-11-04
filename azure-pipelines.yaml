@@ -1,0 +1,19 @@
+trigger:
+  - main
+
+pr: none
+
+resources:
+  repositories:
+  - repository: templates
+    type: github
+    endpoint: John D Watson
+    name: johnwatson484/azure-devops-templates
+    ref: refs/tags/1
+
+extends:
+  template: build.yaml@templates
+  parameters:
+    name: bin-schedule
+    deploy: true
+    namespace: bin-schedule

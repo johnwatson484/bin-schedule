@@ -1,5 +1,5 @@
-# Hapi Template
-Quick start new Node.js project using Hapi.js.
+# Bin Schedule
+Send email alerts for your bin and recycling pickup days. 
 
 ## Prerequisites
 
@@ -8,7 +8,7 @@ Either:
 - Docker Compose
 
 Or:
-- Node 16+
+- Node 18+
 
 ## Running application
 ### Docker
