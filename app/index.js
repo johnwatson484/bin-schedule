@@ -1,15 +1,18 @@
-'use strict'
-const fs = require('fs')
-const path = require('path')
-const request = require('request')
-const cheerio = require('cheerio')
-const phantom = require('phantom')
-const nodemailer = require('nodemailer')
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import phantom from 'phantom'
+import cheerio from 'cheerio'
+import request from 'request'
+import sendEmail from './send-email.js'
 
 let pageSessionId = ''
 let nonce = ''
 
-const fileName = path.join(__dirname, 'BinSchedule.html')
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+const fileName = path.join(__dirname, 'bin-schedule.html')
 
 request.get({
   url: 'https://services.gateshead.gov.uk/bin-collection-dates',
@@ -120,31 +123,4 @@ function extractData () {
   })
 
   console.log('Checking complete')
-}
-
-function sendEmail (message) {
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: 465,
-    secure: true, // ssl
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASSWORD
-    }
-  })
-
-  const mailOptions = {
-    from: process.env.SMTP_USER,
-    to: process.env.EMAILS,
-    subject: 'Bin Day Alert',
-    html: '<h3>Bin Day Alert</h3><p>' + message + '</p>'
-  }
-
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error)
-    } else {
-      console.log('Email sent: ' + info.response)
-    }
-  })
 }
