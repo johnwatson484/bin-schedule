@@ -3,3 +3,10 @@ services:
     build: .
     image: bin-schedule
     container_name: bin-schedule
+    environment:
+      ADDRESS: ${ADDRESS}
+      POSTCODE: ${POSTCODE}
+      EMAILS: ${EMAILS}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}

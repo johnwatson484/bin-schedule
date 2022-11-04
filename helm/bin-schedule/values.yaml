@@ -7,5 +7,14 @@ container:
   requestCpu: 10m
   limitMemory: 40Mi
   limitCpu: 40m
+  emails:
+  smtpHost:
+  smtpUser:
+  smtpPassword:
+  postcode:
+  address:
 
 deployment: {}
+
+secret:
+  type: Opaque

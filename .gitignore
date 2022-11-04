@@ -104,3 +104,4 @@ dist
 .tern-port
 
 production-values.yaml
+*.html

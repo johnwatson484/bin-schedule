@@ -17,3 +17,4 @@ extends:
     name: bin-schedule
     deploy: true
     namespace: bin-schedule
+    hasSecureHelmValuesFile: true
