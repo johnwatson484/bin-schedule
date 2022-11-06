@@ -16,13 +16,9 @@
   "author": "John Watson",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "1.0.0-rc.12",
+    "chromedriver": "107.0.3",
     "nodemailer": "6.8.0",
-    "phantom": "6.0.0",
-    "phantomjs-prebuilt": "2.1.16",
-    "request": "2.87.0",
-    "split": "1.0.1",
-    "winston": "3.8.2"
+    "selenium-webdriver": "4.6.0"
   },
   "devDependencies": {
     "nodemon": "2.0.20",

@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer'
 
-function sendEmail (message) {
+const sendEmail = async (message) => {
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: 465,
@@ -15,16 +15,10 @@ function sendEmail (message) {
     from: process.env.SMTP_USER,
     to: process.env.EMAILS,
     subject: 'Bin Day Alert',
-    html: '<h3>Bin Day Alert</h3><p>' + message + '</p>'
+    html: `<h3>Bin Day Alert</h3><p>${message}</p>`
   }
 
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error)
-    } else {
-      console.log('Email sent: ' + info.response)
-    }
-  })
+  await transporter.sendMail(mailOptions)
 }
 
 export default sendEmail
