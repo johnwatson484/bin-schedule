@@ -1,0 +1,13 @@
+{{- include "helm-library.cron-job" (list . "power-lines-data-service.cron-job-fixtures") -}}
+{{- define "power-lines-data-service.cron-job-fixtures" -}}
+metadata:
+  name: {{.Values.name }}
+spec:
+  successfulJobsHistoryLimit: 1
+  jobTemplate: 
+    spec:
+      template:
+        spec:
+          containers:
+          - {{ include "helm-library.container" (list . "bin-schedule.container") | nindent 12 }}
+{{- end -}}

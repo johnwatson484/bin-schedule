@@ -1,8 +1,0 @@
-{{- include "helm-library.deployment" (list . "bin-schedule.deployment") -}}
-{{- define "bin-schedule.deployment" -}}
-spec:
-  template:
-    spec:
-      containers:
-      - {{ include "helm-library.container" (list . "bin-schedule.container") }}
-{{- end -}}
