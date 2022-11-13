@@ -105,3 +105,5 @@ dist
 
 production-values.yaml
 *.html
+
+.vscode
