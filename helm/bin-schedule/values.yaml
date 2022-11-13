@@ -7,12 +7,12 @@ container:
   requestCpu: 10m
   limitMemory: 40Mi
   limitCpu: 40m
-  emails:
-  smtpHost:
-  smtpUser:
-  smtpPassword:
-  postcode:
-  address:
+  emails: test@test.com
+  smtpHost: host.com
+  smtpUser: user
+  smtpPassword: password
+  postcode: ab1 1ab
+  address: home
 
 secret:
   type: Opaque
