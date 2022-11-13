@@ -107,3 +107,4 @@ production-values.yaml
 *.html
 
 .vscode
+*.lock
