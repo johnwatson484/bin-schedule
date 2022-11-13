@@ -1,12 +1,18 @@
 import { Builder, Browser, By, Key, until } from 'selenium-webdriver'
+import { Options } from 'selenium-webdriver/chrome.js'
 import MONTHS from './months.js'
 import sendEmail from './send-email.js'
 
 const POSTCODE = process.env.POSTCODE
 const ADDRESS = process.env.ADDRESS
 
-async function checkSchedule () {
-  const driver = await new Builder().forBrowser(Browser.CHROME).build()
+const checkSchedule = async () => {
+  const options = new Options()
+  options.addArguments('--disable-dev-shm-usage')
+  options.addArguments('--no-sandbox')
+  options.addArguments('--headless')
+  options.addArguments('--disable-gpu')
+  const driver = await new Builder().forBrowser(Browser.CHROME).setChromeOptions(options).build()
   try {
     await driver.get('https://services.gateshead.gov.uk/bin-collection-dates')
     await driver.wait(until.titleIs('Bin collection day checker - Gateshead Council'), 2000)
@@ -17,6 +23,7 @@ async function checkSchedule () {
     await driver.wait(until.elementLocated(By.css('.bincollections__table')), 5000)
     const rows = await driver.findElements(By.tagName('tr'))
     let month = MONTHS.JANUARY
+    let isBinCollectionDay = false
     for (const row of rows) {
       const th = await row.findElements(By.tagName('th'))
       if (th.length) {
@@ -28,11 +35,15 @@ async function checkSchedule () {
         const bin = await td[2].getText()
         const currentDate = new Date()
         if (month === MONTHS[currentDate.getMonth] && date === currentDate.getDate().toString().padStart(2, '0')) {
+          isBinCollectionDay = true
           const message = `Bin Day - ${day} ${date} ${month} - ${bin}`
           console.log(message)
           sendEmail(message)
         }
       }
+    }
+    if (!isBinCollectionDay) {
+      console.log('No bin collection today')
     }
   } finally {
     await driver.quit()
