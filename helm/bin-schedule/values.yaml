@@ -5,8 +5,8 @@ image: bin-schedule
 container:
   requestMemory: 10Mi
   requestCpu: 10m
-  limitMemory: 40Mi
-  limitCpu: 40m
+  limitMemory: 300Mi
+  limitCpu: 200m
   emails: test@test.com
   smtpHost: host.com
   smtpUser: user
