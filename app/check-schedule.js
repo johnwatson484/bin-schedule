@@ -8,8 +8,8 @@ const ADDRESS = process.env.ADDRESS
 
 const checkSchedule = async () => {
   const options = new Options()
-  options.addArguments('--disable-dev-shm-usage')
   options.addArguments('--no-sandbox')
+  options.addArguments('--disable-dev-shm-usage')
   options.addArguments('--headless')
   options.addArguments('--disable-gpu')
   const driver = await new Builder().forBrowser(Browser.CHROME).setChromeOptions(options).build()
