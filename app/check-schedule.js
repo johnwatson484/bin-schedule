@@ -8,11 +8,11 @@ const ADDRESS = process.env.ADDRESS
 
 const checkSchedule = async () => {
   const options = new Options()
-  options.addArguments('--no-sandbox')
-  options.addArguments('--disable-dev-shm-usage')
-  options.addArguments('--headless')
-  options.addArguments('--disable-gpu')
-  options.addArguments('--user-data-dir=/tmp/google-chrome')
+  options.addArguments('no-sandbox')
+  options.addArguments('disable-dev-shm-usage')
+  options.addArguments('headless')
+  options.addArguments('disable-gpu')
+  options.addArguments('user-data-dir=/tmp/google-chrome')
   const driver = await new Builder().forBrowser(Browser.CHROME).setChromeOptions(options).build()
   try {
     await driver.get('https://services.gateshead.gov.uk/bin-collection-dates')
