@@ -1,5 +1,5 @@
-{{- include "helm-library.cron-job" (list . "power-lines-data-service.cron-job-fixtures") -}}
-{{- define "power-lines-data-service.cron-job-fixtures" -}}
+{{- include "helm-library.cron-job" (list . "bin-schedule.cron-job-fixtures") -}}
+{{- define "bin-schedule.cron-job-fixtures" -}}
 metadata:
   name: {{.Values.name }}
 spec:
