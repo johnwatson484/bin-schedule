@@ -3,7 +3,7 @@
 metadata:
   name: {{.Values.name }}
 spec:
-  successfulJobsHistoryLimit: 1
+  successfulJobsHistoryLimit: {{ .Values.cronJob.successfulJobsHistoryLimit }}
   jobTemplate: 
     spec:
       template:
