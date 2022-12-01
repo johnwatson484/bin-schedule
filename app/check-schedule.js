@@ -26,6 +26,7 @@ const checkSchedule = async () => {
     const rows = await driver.findElements(By.tagName('tr'))
     let month = MONTHS.JANUARY
     let isBinCollectionDay = false
+    const currentDate = new Date()
     for (const row of rows) {
       const th = await row.findElements(By.tagName('th'))
       if (th.length) {
@@ -35,12 +36,12 @@ const checkSchedule = async () => {
         const date = await td[0].getText()
         const day = await td[1].getText()
         const bin = await td[2].getText()
-        const currentDate = new Date()
-        if (month === MONTHS[currentDate.getMonth] && date === currentDate.getDate().toString().padStart(2, '0')) {
+        if (month === MONTHS[currentDate.getMonth()] && date === currentDate.getDate().toString().padStart(2, '0')) {
           isBinCollectionDay = true
           const message = `Bin Day - ${day} ${date} ${month} - ${bin}`
           console.log(message)
           sendEmail(message)
+          break
         }
       }
     }

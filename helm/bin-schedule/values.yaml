@@ -9,6 +9,7 @@ container:
   limitCpu: 200m
   emails: test@test.com
   smtpHost: host.com
+  smtpPort: 587
   smtpUser: user
   smtpPassword: password
   postcode: ab1 1ab
@@ -21,4 +22,4 @@ cronJob:
   schedule: "30 7 * * *" # 7:30am every day
   concurrencyPolicy: Forbid
   restartPolicy: Never
-  successfulJobsHistoryLimit: 7
+  successfulJobsHistoryLimit: 1
