@@ -1,7 +1,7 @@
 {{- include "helm-library.cron-job" (list . "bin-schedule.cron-job") -}}
 {{- define "bin-schedule.cron-job" -}}
 metadata:
-  name: {{.Values.name }}
+  name: {{ .Values.name }}
 spec:
   successfulJobsHistoryLimit: {{ .Values.cronJob.successfulJobsHistoryLimit }}
   jobTemplate: 

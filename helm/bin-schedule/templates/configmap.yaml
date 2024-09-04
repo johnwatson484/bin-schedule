@@ -2,5 +2,6 @@
 {{- define "bin-schedule.configmap" -}}
 data:
   NODE_ENV: {{ quote .Values.environment }}
+  SMTP_HOST: {{ quote .Values.container.smtpHost }}
   SMTP_PORT: {{ quote .Values.container.smtpPort }}
 {{- end -}}

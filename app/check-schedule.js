@@ -16,7 +16,7 @@ const checkSchedule = async () => {
   options.addArguments('remote-debugging-port=9222')
   const driver = await new Builder().forBrowser(Browser.CHROME).setChromeOptions(options).build()
   try {
-    await driver.get('https://services.gateshead.gov.uk/bin-collection-dates')
+    await driver.get('https://www.gateshead.gov.uk/article/3150/Bin-collection-day-checker')
     await driver.wait(until.titleIs('Bin collection day checker - Gateshead Council'), 2000)
     await driver.findElement(By.name('BINCOLLECTIONCHECKER_ADDRESSSEARCH_ADDRESSLOOKUPPOSTCODE')).sendKeys(POSTCODE, Key.RETURN)
     await driver.wait(until.elementLocated(By.id('BINCOLLECTIONCHECKER_ADDRESSSEARCH_ADDRESSLOOKUPADDRESS')), 2000)
