@@ -14,7 +14,6 @@ const checkSchedule = async () => {
   options.addArguments('disable-gpu')
   options.addArguments('user-data-dir=/tmp/google-chrome')
   options.addArguments('remote-debugging-port=9222')
-  options.addArguments('disable-setuid-sandbox')
   const driver = await new Builder().forBrowser(Browser.CHROME).setChromeOptions(options).build()
   try {
     await driver.get('https://www.gateshead.gov.uk/article/3150/Bin-collection-day-checker')

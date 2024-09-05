@@ -3,10 +3,10 @@ name: bin-schedule
 image: bin-schedule
 
 container:
-  requestMemory: 10Mi
-  requestCpu: 10m
+  requestMemory: 100Mi
+  requestCpu: 100m
   limitMemory: 300Mi
-  limitCpu: 200m
+  limitCpu: 250m
   smtpHost: smtp-mail.outlook.com
   smtpPort: 587
 
