@@ -1,8 +1,8 @@
 # Development
-FROM node:18-alpine AS development
-ENV NODE_ENV development
+FROM node:20-alpine AS development
+ENV NODE_ENV=development
 ARG PORT=3000
-ENV PORT ${PORT}
+ENV PORT=${PORT}
 EXPOSE ${PORT} 9229
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
@@ -11,9 +11,9 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 RUN apk add --no-cache \
     chromium \
     chromium-chromedriver \
-    nss \
     freetype \
     harfbuzz \
+    nss \
     ttf-freefont
 
 USER node
@@ -25,6 +25,6 @@ CMD [ "npm", "run", "start:watch" ]
 
 # Production
 FROM development AS production
-ENV NODE_ENV production
+ENV NODE_ENV=production
 RUN npm ci
 CMD [ "node", "app" ]
