@@ -8,7 +8,6 @@ container:
   limitMemory: 300Mi
   smtpHost: smtp-mail.outlook.com
   smtpPort: 587
-  readOnlyRootFilesystem: false
 
 secret:
   secretsPath: /bin-schedule
