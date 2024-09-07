@@ -13,9 +13,7 @@ const checkSchedule = async () => {
   options.addArguments('headless')
   options.addArguments('disable-gpu')
   options.addArguments('user-data-dir=/tmp/google-chrome')
-  if(process.env.NODE_ENV === 'development') {
-    options.addArguments('remote-debugging-port=9222')
-  }
+  options.addArguments('remote-debugging-port=9222')
   const driver = await new Builder().forBrowser(Browser.CHROME).setChromeOptions(options).build()
   try {
     await driver.get('https://www.gateshead.gov.uk/article/3150/Bin-collection-day-checker')
