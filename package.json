@@ -1,6 +1,6 @@
 {
   "name": "bin-schedule",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "",
   "main": "app/index.js",
   "type": "module",
@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "nodemailer": "6.9.15",
-    "selenium-webdriver": "4.6.0"
+    "selenium-webdriver": "4.24.0"
   },
   "devDependencies": {
     "eslint": "9.10.0",
