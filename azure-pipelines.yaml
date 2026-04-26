@@ -15,5 +15,5 @@ extends:
   template: build.yaml@templates
   parameters:
     name: bin-schedule
-    deploy: true
+    deploy: false
     namespace: bin-schedule
